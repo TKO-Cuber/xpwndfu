@@ -1,6 +1,15 @@
-# xpwndfu
-XPWNDFU repo.
-XPWNDFU is a bash wrapper for ipwndfu. I made downloading dependencies and the iOS 4.3.5 iBSS easier and faster, you just need to run setup.sh to do this, and I made a simple menu, so you dont execute ./ipwndfu -x or -p  but just choose an option from the menu.
+# XPWNDFU
+
+XPWNDFU is a bash wrapper for ipwndfu, an untethered jailbreaking tool for older devices.
+
+XPWNDFU makes setting up ipwndfu easier.
+It automatically downloads the 4.3.5 iBSS and other dependencies.
+
+I've also added an option for verbose booting your new BootROM iPhone 3GS, something the original ipwndfu doesn't have.
+This is my fork of XPWNDFU
+
+
+
 CREDITS:
 ipwndfu https://github.com/axi0mX/ipwndfu
 linuxbrew: http://linuxbrew.sh/
