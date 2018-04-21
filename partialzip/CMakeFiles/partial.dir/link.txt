@@ -1,0 +1,2 @@
+/usr/bin/ar cr libpartial.a  CMakeFiles/partial.dir/partial.c.o
+/usr/bin/ranlib libpartial.a

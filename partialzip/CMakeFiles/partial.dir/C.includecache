@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/artikus/Documents/XPWNDFU/partial-zip-master/partial.c
+curl/curl.h
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+inttypes.h
+-
+zlib.h
+-
+libgen.h
+-
+common.h
+/home/artikus/Documents/XPWNDFU/partial-zip-master/common.h
+partial/partial.h
+/home/artikus/Documents/XPWNDFU/partial-zip-master/partial/partial.h
+
+include/common.h
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+string.h
+-
+sys/types.h
+-
+
+include/partial/partial.h
+inttypes.h
+-
+curl/curl.h
+-
+

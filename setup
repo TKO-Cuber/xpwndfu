@@ -1,0 +1,7 @@
+ echo Downloading iOS 4.3.5 iPhone 3GS iBSS, please wait...
+ ./partialzip/partialzip http://appldnld.apple.com/iPhone4/041-1965.20110721.gxUB5/iPhone2,1_4.3.5_8L1_Restore.ipsw Firmware/dfu/iBSS.n88ap.RELEASE.dfu ./ipwndfu/n88ap-iBSS-4.3.5.img3
+ echo iOS 4.3.5 iPhone 3GS iBSS downloaded. Installing libusb...
+ ./brew/bin/brew install libusb
+ echo Installed libusb. Now you can use ipwndfu!
+ read -rsp $'Press any key to continue launch XPWNDFU...\n' -n1 key
+ ./xpwndfu

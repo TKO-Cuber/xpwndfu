@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/partialzip.dir/partialzip.c.o  -o partialzip -rdynamic libpartial.a -lcurl -lz 

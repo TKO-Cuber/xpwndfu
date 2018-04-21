@@ -1,0 +1,76 @@
+clear
+echo " "
+echo " "
+echo '            __   ________ _    _ _   _____________ _   _'
+echo '            \ \ / /| ___ \ |  | | \ | |  _  \  ___| | | |'
+echo '             \ V / | |_/ / |  | |  \| | | | | |_  | | | |'
+echo '             /   \ |  __/| |/\| | . ` | | | |  _| | | | |'
+echo '            / /^\ \| |   \  /\  / |\  | |/ /| |   | |_| |'
+echo '            \/   \/\_|    \/  \/\_| \_/___/ \_|    \___/'
+echo " "
+echo " "
+echo '            [1] PWN DFU'
+echo '            [2] PWN BootRom'
+echo '            [3] Verbose Boot'
+echo " "
+read action
+	if [ $action -eq 1 ]
+		then
+			sudo ./ipwndfu/ipwndfu -p
+	fi
+	if [ $action -eq 2 ]
+		then
+			sudo ./ipwndfu/ipwndfu -x
+	fi
+	if [ $action -eq 3 ]
+		then
+			if [ ! -e 'ipwndfu/no_remind' ]
+				then
+					echo " "
+					echo This option only works with the new BootROM 3GS.
+					echo Using this on any other device may go wrong.
+					echo " "
+					echo Stop showing this message?
+					echo [1] Yes
+					echo [2] No
+					echo " "
+					read show
+					if [ $show -eq 1 ]
+					then
+						echo "." > 'ipwndfu/no_remind'
+					fi
+			fi
+			if [ -e 'ipwndfu/no_remind' ]
+				then
+					echo " "
+					echo What is your iOS version?
+					echo " "
+					echo [6.1.6]
+					echo [6.1.3]
+					echo [6.1]
+					echo [5.1.1]
+					echo [5.0.1]
+					echo [4.2.1]
+					echo [4.1]
+					echo [3.1.3]
+					read iOS
+					echo " "
+					echo We will verbose boot your 3GS on $iOS
+					echo " "
+					cd ipwndfu
+					sudo ./ipwndfu -f nor-backups/$iOS.dump
+					cd ..
+			fi
+		fi
+echo "Would you like to do anything else?"
+echo [1] Yes
+echo [2] No
+read more
+	if [[ $more -eq 1 ]]; then
+		./xpwndfu
+	fi
+	if [[ $more -eq 2 ]]; then
+		echo Thank you for using XPWNDFU, $USER!
+		sleep 5
+		exit
+	fi

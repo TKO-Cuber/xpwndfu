@@ -1,0 +1,2 @@
+/home/artikus/Documents/XPWNDFU/partial-zip-master/CMakeFiles/partial.dir
+/home/artikus/Documents/XPWNDFU/partial-zip-master/CMakeFiles/partialzip.dir
