@@ -58,7 +58,14 @@ read action
 					echo We will verbose boot your 3GS on $iOS
 					echo " "
 					cd ipwndfu
+					echo "Pwning DFU"
+					sudo ./ipwndfu -p
+					echo "Flashing NOR"
 					sudo ./ipwndfu -f nor-backups/$iOS.dump
+					echo "Pwning DFU again"
+					sudo ./ipwndfu -p
+					echo "Installing Alloc8 exploit to NOR"
+					sudo ./ipwndfu -x
 					cd ..
 			fi
 		fi
