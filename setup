@@ -1,7 +1,30 @@
- echo Downloading iOS 4.3.5 iPhone 3GS iBSS, please wait...
- ./partialzip/partialzip http://appldnld.apple.com/iPhone4/041-1965.20110721.gxUB5/iPhone2,1_4.3.5_8L1_Restore.ipsw Firmware/dfu/iBSS.n88ap.RELEASE.dfu ./ipwndfu/n88ap-iBSS-4.3.5.img3
- echo iOS 4.3.5 iPhone 3GS iBSS downloaded. Installing libusb...
- ./brew/bin/brew install libusb
- echo Installed libusb. Now you can use ipwndfu!
- read -rsp $'Press any key to continue launch XPWNDFU...\n' -n1 key
+
+echo " "
+echo " "
+echo "Preparing ipwndfu dependencies..."
+echo "make sure you have wget installed."
+sleep 3
+echo " "
+echo " "
+  if [[ ! -e ipwndfu/n88ap-iBSS-4.3.5.img3 ]]; then
+    echo "downloading 4.3.5 iBSS"
+    echo " "
+    echo " "
+    wget http://appldnld.apple.com/iPhone4/041-1965.20110721.gxUB5/iPhone2,1_4.3.5_8L1_Restore.ipsw
+    unzip -p iPhone2,1_4.3.5_8L1_Restore.ipsw Firmware/dfu/iBSS.n88ap.RELEASE.dfu > n88ap-iBSS-4.3.5.img3
+    mv n88ap-iBSS-4.3.5.img3 ipwndfu
+    rm iPhone2,1_4.3.5_8L1_Restore.ipsw
+    echo " "
+  fi
+
+if [[ ! -e ipwndfu/done ]]; then
+  echo Installing libusb...
+  ./brew/bin/brew install libusb
+  echo 'done' > ipwndfu/done
+fi
+
+echo " "
+echo Setup done! Now you can use ipwndfu!
+read -rsp $'Press any key to begin...\n' -n1 key
+ echo " "
  ./xpwndfu

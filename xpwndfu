@@ -10,20 +10,23 @@ echo '            \/   \/\_|    \/  \/\_| \_/___/ \_|    \___/'
 echo " "
 echo " "
 echo '            [1] PWN DFU'
-echo '            [2] PWN BootRom'
+echo '            [2] PWN BootROM'
 echo '            [3] Verbose Boot'
 echo " "
 read action
 	if [ $action -eq 1 ]
 		then
+			echo " "
 			sudo ./ipwndfu/ipwndfu -p
 	fi
 	if [ $action -eq 2 ]
 		then
+			echo " "
 			sudo ./ipwndfu/ipwndfu -x
 	fi
 	if [ $action -eq 3 ]
 		then
+			echo " "
 			if [ ! -e 'ipwndfu/no_remind' ]
 				then
 					echo " "
@@ -59,12 +62,16 @@ read action
 					echo " "
 					cd ipwndfu
 					echo "Pwning DFU"
+					echo " "
 					sudo ./ipwndfu -p
 					echo "Flashing NOR"
+					echo " "
 					sudo ./ipwndfu -f nor-backups/$iOS.dump
 					echo "Pwning DFU again"
+					echo " "
 					sudo ./ipwndfu -p
 					echo "Installing Alloc8 exploit to NOR"
+					echo " "
 					sudo ./ipwndfu -x
 					cd ..
 			fi
@@ -78,6 +85,6 @@ read more
 	fi
 	if [[ $more -eq 2 ]]; then
 		echo Thank you for using XPWNDFU, $USER!
-		sleep 5
+		sleep 10
 		exit
 	fi
